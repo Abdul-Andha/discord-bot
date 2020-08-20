@@ -70,7 +70,6 @@ async function showRow(receivedMessage, args, sheet) {
     let targetRows = await findRow(args[1], sheet);
 
     let content = "";
-    console.log(targetRows);
     for (let i = 0; i < targetRows.length; i++) {
         content += `${targetRows[i].Alias} | `;
         content += `${targetRows[i].IGN} | `;

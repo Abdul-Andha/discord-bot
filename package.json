@@ -1,0 +1,18 @@
+{
+  "name": "dynamic_helper_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dygbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thunder",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "google-spreadsheet": "^3.0.11",
+    "googleapis": "^39.2.0",
+    "twit": "^2.2.11",
+    "weather-js": "^2.0.0"
+  }
+}

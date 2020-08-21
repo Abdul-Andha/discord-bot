@@ -97,7 +97,7 @@ async function showAllMembers(receivedMessage, args, sheet) {
     const outputMessage = new Discord.MessageEmbed();
     outputMessage.setTitle("__**Dynamic Gaming Clantag**__");
     outputMessage.setColor("#3381ff");
-    outputMessage.setFooter("Made by Thunder")
+    outputMessage.setFooter(`Total: ${rows.length}`)
     let content = "";
     for (let i = 0; i < rows.length; i++) {
         content += `${rows[i].IGN} | `;

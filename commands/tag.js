@@ -81,7 +81,7 @@ async function showRow(receivedMessage, args, sheet) {
 
     const outputMessage = new Discord.MessageEmbed();
     outputMessage.setColor("#3381ff");
-    outputMessage.setFooter(`Total ${targetRows.length}`);
+    outputMessage.setFooter(`Total: ${targetRows.length}`);
     if (content == "") {
         outputMessage.setTitle(`__**Not found**__`);
         outputMessage.setDescription(`${args[1]} was not found.`)

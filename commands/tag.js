@@ -117,6 +117,8 @@ async function updateRow(receivedMessage, args, sheet) {
         for (let i = 4; i < args.length; i++)
             args[3] += " " + args[i];
     let targetRow = await findRow(args[1], sheet);
+    if (targetRow.length === 0)
+        return receivedMessage.channel.send(`${args[1]} not found.`)
     if (args[2] === "Alias")
         targetRow[0].Alias = args[3];
     else if (args[2] === "IGN")
@@ -128,6 +130,7 @@ async function updateRow(receivedMessage, args, sheet) {
     else if (args[2] === "Reason")
         targetRow[0].Reason = args[3];
     await targetRow[0].save();
+    return receivedMessage.react('👍');
 }
 
 async function findRow(arg, sheet) {

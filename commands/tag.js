@@ -137,7 +137,7 @@ async function findRow(arg, sheet) {
     for (let i = 1; i < rows.length + 1; i++)
         for (let j = 0; j < 6; j++)
             if (arg === sheet.getCell(i, j).value.toString())
-                if (targetRows.length === 0 || rows[i - 1] !== targetRows[0])
+                if (!targetRows.includes(rows[i - 1]))
                     targetRows.push(rows[i - 1]);
     return targetRows;
 }

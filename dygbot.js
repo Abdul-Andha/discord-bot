@@ -52,8 +52,8 @@ function processCommand(receivedMessage) {
         bot.commands.get('tag').execute(receivedMessage, args, sheet);
     else if (mainCommand === "help")
         bot.commands.get('help').execute(receivedMessage, args);
-    else if (mainCommand === "test")
-        bot.commands.get('test').execute(receivedMessage, args);
+    else if (mainCommand === "message")
+        bot.commands.get('message').execute(receivedMessage, args);
     else receivedMessage.channel.send("Unknown Command");
 }
 

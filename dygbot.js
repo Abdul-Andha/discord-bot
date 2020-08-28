@@ -54,7 +54,7 @@ function processCommand(receivedMessage) {
         bot.commands.get('help').execute(receivedMessage, args);
     else if (mainCommand === "message")
         bot.commands.get('message').execute(receivedMessage, args);
-    else receivedMessage.channel.send("Unknown Command");
+    else receivedMessage.channel.send("Unknown Command ");
 }
 
 

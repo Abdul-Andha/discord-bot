@@ -16,6 +16,7 @@ module.exports = {
         args[0] = args[0].substr(0, args[0].length - 1);
         console.log(args[0]);
         targetChannel = bot.channels.fetch(args[0]);
-        targetChannel.send(outputMessage);
+        console.log(targetChannel);
+        // targetChannel.send(outputMessage);
     }
 }

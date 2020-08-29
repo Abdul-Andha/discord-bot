@@ -13,6 +13,7 @@ module.exports = {
         outputMessage.setTitle(args[1]);
         outputMessage.setDescription(args[2]);
         console.log(args[0]);
+        args[0].replace('<#>', '');
         // targetChannel = bot.channels.fetch(args[0]);
         console.log(receivedMessage.channel);
         receivedMessage.channel.send(outputMessage);

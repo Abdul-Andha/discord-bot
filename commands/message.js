@@ -13,7 +13,7 @@ module.exports = {
         outputMessage.setTitle(args[1]);
         outputMessage.setDescription(args[2]);
         console.log(args[0]);
-        targetChannel = client.channels.fetch(args[0]);
+        targetChannel = bot.channels.fetch(args[0]);
         receivedMessage.channel.send(outputMessage);
     }
 }

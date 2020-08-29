@@ -2,7 +2,7 @@ const Discord = require(`discord.js`);
 module.exports = {
     name: 'message',
     description:'Requires three arguments. The first argument must be a channel. The second argument must be the title. The third argument must be the message. The bot will send the specified message to the specified channel.',
-    execute(receivedMessage, args) {
+    execute(bot, receivedMessage, args) {
         if (args.length < 3)
             return receivedMessage.channel.send("Error: Not enough arguments. Try ~message **[Channel]** **[Title]** **[Message]**");
         if (args.length > 3)

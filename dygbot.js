@@ -53,7 +53,7 @@ function processCommand(receivedMessage) {
     else if (mainCommand === "help")
         bot.commands.get('help').execute(receivedMessage, args);
     else if (mainCommand === "message" && receivedMessage.author.id == "152207704545296384")
-        bot.commands.get('message').execute(receivedMessage, args);
+        bot.commands.get('message').execute(bot, receivedMessage, args);
     else receivedMessage.channel.send("Unknown Command ");
 }
 

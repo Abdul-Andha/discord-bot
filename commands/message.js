@@ -15,6 +15,11 @@ module.exports = {
         args[0] = args[0].substr(2);
         args[0] = args[0].substr(0, args[0].length - 1);
         targetChannel = bot.channels.cache.get(args[0]);
-        targetChannel.send(outputMessage);
+        try {
+            targetChannel.send(outputMessage);
+          }
+          catch(err) {
+            receivedMessage.channel.send("Error: That channel does not exist. Try ~message **[Channel]** **[Title]** **[Message]**");
+          }
     }
 }

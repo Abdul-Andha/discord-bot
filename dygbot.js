@@ -36,7 +36,7 @@ bot.on(`message`, (receivedMessage) => {
         processCommand(receivedMessage);
     }
 })
-perms = ["152207704545296384", "332660732539961368"];
+perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1);
     let splitCommand = fullCommand.split(" ");
@@ -52,7 +52,7 @@ function processCommand(receivedMessage) {
         bot.commands.get('tag').execute(receivedMessage, args, sheet);
     else if (mainCommand === "help")
         bot.commands.get('help').execute(receivedMessage, args);
-    else if (mainCommand === "message" && receivedMessage.author.id == "152207704545296384")
+    else if (mainCommand === "message" && perms.includes(receivedMessage.author.id))
         bot.commands.get('message').execute(bot, receivedMessage, args);
     else if (mainCommand === 'announce' && perms.includes(receivedMessage.author.id))
         bot.commands.get('announce').execute(bot, receivedMessage, args);

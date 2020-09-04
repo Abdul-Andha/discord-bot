@@ -14,7 +14,7 @@ module.exports = {
             date = (result[0].current.date);
         });
         if (args[0] === "add")
-            addRow(receivedMessage, args, sheet);
+            addRow(receivedMessage, args, sheet, date);
         else if (args[0] === "remove")
             removeRow(receivedMessage, args, sheet);
         else if (args[0] === "find")
@@ -27,7 +27,7 @@ module.exports = {
     }
 }
 
-function addRow(receivedMessage, args, sheet) {
+function addRow(receivedMessage, args, sheet, date) {
     if (args.length < 6)
         return receivedMessage.channel.send("Error: Not enough arguments. Try /tag add **Alias Discord Reason ID IGN**");
     if (args.length > 6)

@@ -3,16 +3,16 @@ const {
     sheets
 } = require("googleapis/build/src/apis/sheets");
 const weather = require('weather-js');
+let date;
+    weather.find({search: 'Brooklyn, NY', degreeType: 'F'}, function (err, result) {
+        if (err) console.log(err);
+        date = (result[0].current.date);
+    });
 
 module.exports = {
     name: 'tag',
     description: 'Helps with managing the DyG tag. It can add, remove, show everyone in tag, or look someone up. Stores Alias, IGN, ID, Discord@, Date given, and Reason for tag',
     execute(receivedMessage, args, sheet) {
-        let date;
-        weather.find({search: 'Brooklyn, NY', degreeType: 'F'}, function (err, result) {
-            if (err) console.log(err);
-            date = (result[0].current.date);
-        });
         if (args[0] === "add")
             addRow(receivedMessage, args, sheet, date);
         else if (args[0] === "remove")

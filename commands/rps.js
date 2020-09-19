@@ -13,7 +13,7 @@ module.exports = {
             helpMsg.setDescription("To play, type **~rps [weapon]** \n *Rock smashes Scissors* \n *Scissors cut Paper* \n *Paper covers Rock*");
             receivedMessage.channel.send(helpMsg);
         } else if (weapons.includes(args[0])) {
-            if (receivedMessage.author.id === "468835647227035650")
+            if (receivedMessage.author.id === "299714507876335617")
                 return trollManthis();
             let chosenWeap = weapons[Math.floor(Math.random() * weapons.length)];
             if (chosenWeap === args[0])

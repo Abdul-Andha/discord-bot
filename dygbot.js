@@ -56,6 +56,8 @@ function processCommand(receivedMessage) {
         bot.commands.get('message').execute(bot, receivedMessage, args);
     else if (mainCommand === 'announce' && perms.includes(receivedMessage.author.id))
         bot.commands.get('announce').execute(bot, receivedMessage, args);
+    else if (mainCommand === "rps")
+        bot.commands.get('rps').execute(receivedMessage, args);
     else receivedMessage.channel.send("Unknown Command ");
 }
 

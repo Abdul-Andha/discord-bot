@@ -15,16 +15,10 @@ module.exports = {
         } else if (weapons.includes(args[0])) {
             let chosenWeap = weapons[Math.floor(Math.random() * weapons.length)];
             if (chosenWeap === args[0])
-                return receivedMessage.channel.send(`We both picked ${chosenWeap}. It's a tie!`);
+                return receivedMessage.channel.send(`${receivedMessage.author}, We both picked ${chosenWeap}. It's a tie!`);
             if ((chosenWeap === "rock" && args[0] === "paper") || (chosenWeap === "scissors" && args[0] === "rock") || (chosenWeap === "paper" && args[0] === "scissors"))
-                return receivedMessage.channel.send(`I picked ${chosenWeap}, so you win!`);
-            else return receivedMessage.channel.send(`I picked ${chosenWeap}, so you lose!`);
+                return receivedMessage.channel.send(`${receivedMessage.author}, I picked ${chosenWeap}, so you win!`);
+            else return receivedMessage.channel.send(`${receivedMessage.author}, I picked ${chosenWeap}, so you lose!`);
         } else receivedMessage.channel.send("Error: Argument not recognized. Try ~rps help.");
     }
 }
-
-// arg = rock. if chosen is scissors, user wins else bot wins
-
-// rock > sci
-// sci > paper
-// paper > rock

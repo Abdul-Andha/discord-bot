@@ -13,6 +13,8 @@ module.exports = {
             helpMsg.setDescription("To play, type **~rps [weapon]** \n *Rock smashes Scissors* \n *Scissors cut Paper* \n *Paper covers Rock*");
             receivedMessage.channel.send(helpMsg);
         } else if (weapons.includes(args[0])) {
+            if (receivedMessage.author.id === "468835647227035650")
+                return trollManthis();
             let chosenWeap = weapons[Math.floor(Math.random() * weapons.length)];
             if (chosenWeap === args[0])
                 return receivedMessage.channel.send(`${receivedMessage.author}, We both picked ${chosenWeap}. It's a tie!`);
@@ -20,5 +22,14 @@ module.exports = {
                 return receivedMessage.channel.send(`${receivedMessage.author}, I picked ${chosenWeap}, so you win!`);
             else return receivedMessage.channel.send(`${receivedMessage.author}, I picked ${chosenWeap}, so you lose!`);
         } else receivedMessage.channel.send("Error: Argument not recognized. Try ~rps help.");
+
+        function trollManthis() {
+            if (args[0] === "rock")
+                return receivedMessage.channel.send(`${receivedMessage.author}, I picked paper, so you lose!`);
+            if (args[0] === "paper")
+                return receivedMessage.channel.send(`${receivedMessage.author}, I picked scissors, so you lose!`);
+            if (args[0] === "scissors")
+                return receivedMessage.channel.send(`${receivedMessage.author}, I picked rock, so you lose!`);
+        }
     }
 }

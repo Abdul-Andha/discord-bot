@@ -5,7 +5,7 @@ module.exports = {
     execute(receivedMessage, args) {
         const weapons = ["rock", "paper", "scissors"];
         if (args.length === 0)
-            receivedMessage.channel.send("Error: No arguments. Try ~rps help.");
+            return receivedMessage.channel.send("Error: No arguments. Try ~rps help.");
         if (args[0] === "help") {
             const helpMsg = new Discord.MessageEmbed();
             helpMsg.setTitle("**__Rock Paper Scissors__**")

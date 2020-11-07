@@ -14,7 +14,7 @@ async function clickCookie(receivedMessage, sheet) {
     if (targetRow.length === 0) {
         console.log("2");
         let newRow = {
-            Name: receivedMessage.member.nickname,
+            Name: receivedMessage.member.user.username,
             CookieCount: 1,
             CookiesPerSec: 0,
             CookiesPerClick: 1,

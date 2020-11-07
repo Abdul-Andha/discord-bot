@@ -14,13 +14,13 @@ const {GoogleSpreadsheet} = require('google-spreadsheet');
 const {promisify} = require('util');
 const creds = require('./creds.json');
 
-let sheet, rows;
+let tagSheet;
 
 async function accessSpreadsheet() {
     const doc = new GoogleSpreadsheet('1cRFU5w8xfBeVtm4GiZwWVO8b8HOKZW0wU-QGk9ugwGA');
     await doc.useServiceAccountAuth(creds);
     const info = await doc.loadInfo();
-    sheet = doc.sheetsByIndex[0];
+    tagSheet = doc.sheetsByIndex[0];
 }
 
 accessSpreadsheet();
@@ -49,7 +49,7 @@ function processCommand(receivedMessage) {
     else if (mainCommand === "excuse")
         bot.commands.get('excuse').execute(receivedMessage, args);
     else if (mainCommand === "tag" && receivedMessage.author.id == "152207704545296384")
-        bot.commands.get('tag').execute(receivedMessage, args, sheet);
+        bot.commands.get('tag').execute(receivedMessage, args, tagSheet);
     else if (mainCommand === "help")
         bot.commands.get('help').execute(receivedMessage, args);
     else if (mainCommand === "message" && perms.includes(receivedMessage.author.id))

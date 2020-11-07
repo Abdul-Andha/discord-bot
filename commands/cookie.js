@@ -12,6 +12,8 @@ async function clickCookie(receivedMessage, sheet) {
     console.log(rows.length);
 }
 
+
+
 // name 
 // cookieCount
 // cookiesPerSecond

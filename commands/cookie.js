@@ -9,16 +9,16 @@ module.exports = {
 
 async function clickCookie(receivedMessage, sheet) {
     let rows = await sheet.getRows();
-    targetRow = findRow(receivedMessage.user.id, sheet);
+    targetRow = findRow(receivedMessage.member.id, sheet);
     if (targetRow.length === 0) {
         let newRow = {
-            Name: receivedMessage.user.userName,
+            Name: receivedMessage.member.userName,
             CookieCount: 1,
             CookiesPerSec: 0,
             CookiePerClick: 1,
             GrandmaCount: 0,
             Time: "test",
-            ID: receivedMessage.user.id
+            ID: receivedMessage.member.id
         };
         sheet.addRow(newRow);
     } 

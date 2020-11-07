@@ -7,7 +7,7 @@ module.exports = {
     }
 }
 
-function clickCookie(receivedMessage) {
+async function clickCookie(receivedMessage) {
     let rows = await sheet.getRows();
     console.log(rows.length);
 }

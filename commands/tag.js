@@ -10,8 +10,6 @@ let date;
         date = (result[0].current.date);
     });
 
-<script src="utilities.js"></script>
-
 module.exports = {
     name: 'tag',
     description: 'Helps with managing the DyG tag. It can add, remove, show everyone in tag, or look someone up. Stores Alias, IGN, ID, Discord@, Date given, and Reason for tag',

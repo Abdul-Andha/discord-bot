@@ -1,7 +1,7 @@
 module.exports = {
     name: 'cookie clicker',
     description: 'Classic Cookie Clicker Game. Consists of creating a profile, doing a command to "click" the cookie, buying upgrades, leaderboard.',
-    execute(receivedMessage) {
+    execute(receivedMessage, args, sheet) {
         let temp = {
             Alias: "Test",
             Discord: "Testing",
@@ -13,3 +13,10 @@ module.exports = {
         sheet.addRow(temp);
     }
 }
+
+// name 
+// cookieCount
+// cookiesPerSecond
+// grandmaCount
+// cookiesPerClick
+// clickUpgrades

@@ -14,13 +14,14 @@ const {GoogleSpreadsheet} = require('google-spreadsheet');
 const {promisify} = require('util');
 const creds = require('./creds.json');
 
-let tagSheet;
+let tagSheet, cookieSheet;
 
 async function accessSpreadsheet() {
     const doc = new GoogleSpreadsheet('1cRFU5w8xfBeVtm4GiZwWVO8b8HOKZW0wU-QGk9ugwGA');
     await doc.useServiceAccountAuth(creds);
     const info = await doc.loadInfo();
     tagSheet = doc.sheetsByIndex[0];
+    cookieSheet = doc.sheetsByIndex[1];
 }
 
 accessSpreadsheet();
@@ -59,7 +60,7 @@ function processCommand(receivedMessage) {
     else if (mainCommand === "rps")
         bot.commands.get('rps').execute(receivedMessage, args);
     else if (mainCommand === "cookie" || mainCommand === "c")
-        bot.commands.get('cookie clicker').execute(receivedMessage, args);
+        bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
     else receivedMessage.channel.send("Unknown Command ");
 }
 

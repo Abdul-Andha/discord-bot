@@ -62,7 +62,6 @@ async function removeRow(receivedMessage, args, sheet) {
 }
 
 async function showRow(receivedMessage, args, sheet) {
-    console.log("tst");
     if (args.length < 2)
         return receivedMessage.channel.send("Error: Not enough arguments. Try /tag find **Alias**")
     if (args.length > 2)

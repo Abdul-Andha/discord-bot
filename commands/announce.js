@@ -4,7 +4,7 @@ module.exports = {
     description:'Requires three arguments. The first argument must be a channel. The second argument must be the title. The third argument must be the message. The bot will announce the specified message to the specified channel.',
     execute(bot, receivedMessage, args) {
         if (args.length < 3)
-            return receivedMessage.channel.send("Error: Not enough arguments. Try ~message **[Channel]** **[Title]** **[Message]**");
+            return receivedMessage.channel.send("Error: Not enough arguments. Try ~announce **[Channel]** **[Title]** **[Message]**");
         if (args.length > 3)
             for (let i = 3; i < args.length; i++)
                 args[2] += " " + args[i];
@@ -20,7 +20,7 @@ module.exports = {
             targetChannel.send("@everyone");
           }
           catch(err) {
-            receivedMessage.channel.send("Error: That channel does not exist. Try ~message **[Channel]** **[Title]** **[Message]**");
+            receivedMessage.channel.send("Error: That channel does not exist. Try ~announce **[Channel]** **[Title]** **[Message]**");
           }
     }
 }

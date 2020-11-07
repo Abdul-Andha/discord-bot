@@ -9,7 +9,7 @@ let date;
         if (err) console.log(err);
         date = (result[0].current.date);
     });
-    
+
 <script src="utilities.js"></script>
 
 module.exports = {
@@ -64,6 +64,7 @@ async function removeRow(receivedMessage, args, sheet) {
 }
 
 async function showRow(receivedMessage, args, sheet) {
+    console.log("test");
     if (args.length < 2)
         return receivedMessage.channel.send("Error: Not enough arguments. Try /tag find **Alias**")
     if (args.length > 2)

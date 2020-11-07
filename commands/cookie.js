@@ -14,10 +14,10 @@ async function clickCookie(receivedMessage, sheet) {
     if (targetRow.length === 0) {
         console.log("2");
         let newRow = {
-            Name: receivedMessage.member.userName,
+            Name: receivedMessage.member.nickname,
             CookieCount: 1,
             CookiesPerSec: 0,
-            CookiePerClick: 1,
+            CookiesPerClick: 1,
             GrandmaCount: 0,
             Time: "test",
             ID: receivedMessage.member.id

@@ -1,4 +1,5 @@
 const Discord = require(`discord.js`);
+const { script } = require("googleapis/build/src/apis/script");
 const {
     sheets
 } = require("googleapis/build/src/apis/sheets");
@@ -8,6 +9,8 @@ let date;
         if (err) console.log(err);
         date = (result[0].current.date);
     });
+    
+<script src="utilities.js"></script>
 
 module.exports = {
     name: 'tag',

@@ -58,8 +58,9 @@ function processCommand(receivedMessage) {
         bot.commands.get('announce').execute(bot, receivedMessage, args);
     else if (mainCommand === "rps")
         bot.commands.get('rps').execute(receivedMessage, args);
+    else if (mainCommand === "cookie" || mainCommand === "c")
+        bot.commands.get('cookie clicker').execute(receivedMessage, args);
     else receivedMessage.channel.send("Unknown Command ");
 }
-
 
 bot.login(process.env.token);

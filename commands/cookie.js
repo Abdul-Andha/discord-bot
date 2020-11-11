@@ -20,12 +20,12 @@ async function clickCookie(receivedMessage, sheet) {
         createProfile(receivedMessage, sheet);
     } else if (targetRow.length === 1) {
         let secsPassed = Math.floor((Date.now() - targetRow.Time) / 1000);
-        targetRow.CookieCount = targetRow.CookieCount + (targetRow.CookiesPerSec * secsPassed);
+        targetRow[0].CookieCount = targetRow[0].CookieCount + (targetRow[0].CookiesPerSec * secsPassed);
+        targetRow[0].save();
     }
 }
 
 async function createProfile(receivedMessage, sheet) {
-    console.log("2");
     let newRow = {
         Name: receivedMessage.member.user.username,
         CookieCount: 1,

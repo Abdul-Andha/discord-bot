@@ -19,12 +19,12 @@ async function clickCookie(receivedMessage, sheet) {
     if (targetRow.length === 0) {
         createProfile(receivedMessage, sheet);
     } else if (targetRow.length === 1) {
-        console.log(1);
-        console.log(targetRow[0].Time);
-        console.log(targetRow[0].CookieCount);
-        console.log(targetRow[0].CookiesPerClick);
-        console.log(targetRow[0].CookiesPerSec);
-        console.log(targetRow[0].ID);
+        // console.log(1);
+        // console.log(targetRow[0].Time);
+        // console.log(targetRow[0].CookieCount);
+        // console.log(targetRow[0].CookiesPerClick);
+        // console.log(targetRow[0].CookiesPerSec);
+        // console.log(targetRow[0].ID);
 
         let secsPassed = Math.floor((Date.now() - targetRow.Time) / 1000);
         console.log(secsPassed);

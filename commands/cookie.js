@@ -9,30 +9,33 @@ module.exports = {
     name: 'cookie clicker',
     description: 'Classic Cookie Clicker Game. Consists of creating a profile, doing a command to "click" the cookie, buying upgrades, leaderboard.',
     execute(receivedMessage, args, sheet) {
-        console.log(date);
-        console.log(Date.now());
         if (args.length === 0)
             clickCookie(receivedMessage, sheet);
     }
 }
 
 async function clickCookie(receivedMessage, sheet) {
-    let rows = await sheet.getRows();
     targetRow = await findRow(receivedMessage.member.id, sheet);
-    console.log(targetRow);
     if (targetRow.length === 0) {
-        console.log("2");
-        let newRow = {
-            Name: receivedMessage.member.user.username,
-            CookieCount: 1,
-            CookiesPerSec: 0,
-            CookiesPerClick: 1,
-            GrandmaCount: 0,
-            Time: "test",
-            ID: receivedMessage.member.id
-        };
-        sheet.addRow(newRow);
-    } 
+        createProfile(receivedMessage, sheet);
+    } else if (targetRow.length === 1) {
+        let secsPassed = Math.floor((Date.now() - targetRow.Time) / 1000);
+        targetRow.CookieCount = targetRow.CookieCount + (targetRow.CookiesPerSec * secsPassed);
+    }
+}
+
+async function createProfile(receivedMessage, sheet) {
+    console.log("2");
+    let newRow = {
+        Name: receivedMessage.member.user.username,
+        CookieCount: 1,
+        CookiesPerSec: 0,
+        CookiesPerClick: 1,
+        GrandmaCount: 0,
+        Time: Date.now(),
+        ID: receivedMessage.member.id
+    };
+    sheet.addRow(newRow); 
 }
 
 async function findRow(arg, sheet) {

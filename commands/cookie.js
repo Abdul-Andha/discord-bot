@@ -1,7 +1,15 @@
+const weather = require('weather-js');
+let date;
+    weather.find({search: 'Brooklyn, NY', degreeType: 'F'}, function (err, result) {
+        if (err) console.log(err);
+        date = (result[0].current.date);
+    });
+    
 module.exports = {
     name: 'cookie clicker',
     description: 'Classic Cookie Clicker Game. Consists of creating a profile, doing a command to "click" the cookie, buying upgrades, leaderboard.',
     execute(receivedMessage, args, sheet) {
+        console.log(date);
         if (args.length === 0)
             clickCookie(receivedMessage, sheet);
     }

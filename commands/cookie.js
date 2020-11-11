@@ -10,6 +10,7 @@ module.exports = {
     description: 'Classic Cookie Clicker Game. Consists of creating a profile, doing a command to "click" the cookie, buying upgrades, leaderboard.',
     execute(receivedMessage, args, sheet) {
         console.log(date);
+        console.log(Date.now());
         if (args.length === 0)
             clickCookie(receivedMessage, sheet);
     }

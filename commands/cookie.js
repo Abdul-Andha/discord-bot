@@ -19,6 +19,8 @@ async function clickCookie(receivedMessage, sheet) {
     if (targetRow.length === 0) {
         createProfile(receivedMessage, sheet);
     } else if (targetRow.length === 1) {
+        console.log(1);
+        console.log(targetRow[0].Time);
         let secsPassed = Math.floor((Date.now() - targetRow.Time) / 1000);
         targetRow[0].CookieCount = targetRow[0].CookieCount + (targetRow[0].CookiesPerSec * secsPassed);
         targetRow[0].save();

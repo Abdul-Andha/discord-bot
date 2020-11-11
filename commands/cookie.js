@@ -25,10 +25,10 @@ async function clickCookie(receivedMessage, sheet) {
         // console.log(targetRow[0].CookiesPerClick);
         // console.log(targetRow[0].CookiesPerSec);
         // console.log(targetRow[0].ID);
-        console.log(Date.now() - TargetRow.Time);
-        console.log((Date.now() - TargetRow.Time) / 1000);
-        console.log(Math.floor((Date.now() - targetRow.Time) / 1000));
-        let secsPassed = Math.floor((Date.now() - parseInt(targetRow.Time)) / 1000);
+        // console.log(Date.now() - TargetRow.Time);
+        // console.log((Date.now() - TargetRow.Time) / 1000);
+        // console.log(Math.floor((Date.now() - targetRow.Time) / 1000));
+        let secsPassed = Math.floor((Date.now() - targetRow[0].Time) / 1000);
         console.log(secsPassed);
         console.log(targetRow[0].CookieCount + (targetRow[0].CookiesPerSec * secsPassed));
         //targetRow[0].CookieCount = targetRow[0].CookieCount + (targetRow[0].CookiesPerSec * secsPassed);

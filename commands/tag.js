@@ -94,17 +94,22 @@ async function showRow(receivedMessage, args, sheet) {
 
 async function showAllMembers(receivedMessage, args, sheet) {
     let rows = await sheet.getRows();
+    rows.sort(function(a, b){
+        if(a.IGN < b.IGN) { return -1; }
+        if(a.IGN > b.IGN) { return 1; }
+        return 0;
+    })
     const outputMessage = new Discord.MessageEmbed();
     outputMessage.setTitle("__**Dynamic Gaming Clantag**__");
     outputMessage.setColor("#3381ff");
-    outputMessage.setFooter(`Total: ${rows.length}`)
+    outputMessage.setFooter(`Total: ${rows.length}`);
     let content = "";
     for (let i = 0; i < rows.length; i++) {
         content += `${rows[i].IGN} | `;
         content += `${rows[i].ID} | `;
         content += `${rows[i].Discord} | `;
         content += `${rows[i].Reason}`;
-        content += "\n"
+        content += "\n";
     }
     outputMessage.setDescription(content);
     receivedMessage.channel.send(outputMessage);

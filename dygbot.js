@@ -36,7 +36,8 @@ bot.on(`ready`, () => {
 });
 
 bot.on(`message`, (receivedMessage) => {
-    checkStreams();
+    const privateBotuse = bot.channels.get('738607225680953354');
+    checkStreams(privateBotuse);
     if (receivedMessage.author == bot.user)
         return;
     if (receivedMessage.content.startsWith(prefix)) {
@@ -70,9 +71,9 @@ function processCommand(receivedMessage) {
     else receivedMessage.channel.send("Unknown Command ");
 }
 
-async function checkStreams() {
+async function checkStreams(channel) {
     const streams = await twitch.getStreams({ channel: "Tubbo"});
-    bot.channels.get('738607225680953354').send(streams);
+    channel.send(streams);
 }
 
 bot.login(process.env.token);

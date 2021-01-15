@@ -36,9 +36,7 @@ bot.on(`ready`, () => {
 });
 
 bot.on(`message`, (receivedMessage) => {
-    const privateBotuse = bot.channels.fetch('738607225680953354');
-    console.log(privateBotuse);
-    console.log(receivedMessage.channel);
+    const privateBotuse = receivedMessage.guild.channels.find(channel => channel.id === "738607225680953354");
     checkStreams(privateBotuse);
     if (receivedMessage.author == bot.user)
         return;

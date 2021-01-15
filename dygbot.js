@@ -1,6 +1,11 @@
 const Discord = require(`discord.js`);
 const bot = new Discord.Client();
-const fs = require(`fs`)
+const fs = require(`fs`);
+const TwitchAPI = require("node-twitch").default;
+const twitch = new TwitchAPI({
+    client_id: "2mtnu7kdr8a8ycya464gtwv06e5wac",
+    client_secret: "icceuhbuze6mw66lirviq4mdo6f4zm"
+});
 const weather = require('weather-js');
 const prefix = "~";
 bot.commands = new Discord.Collection();
@@ -31,6 +36,7 @@ bot.on(`ready`, () => {
 });
 
 bot.on(`message`, (receivedMessage) => {
+    checkStreams();
     if (receivedMessage.author == bot.user)
         return;
     if (receivedMessage.content.startsWith(prefix)) {
@@ -62,6 +68,11 @@ function processCommand(receivedMessage) {
     else if (mainCommand === "cookie" || mainCommand === "c")
         bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
     else receivedMessage.channel.send("Unknown Command ");
+}
+
+async function checkStreams() {
+    const streams = await twitch.getStreams({ channel: "Tubbo"});
+    bot.channels.get('738607225680953354').send(streams);
 }
 
 bot.login(process.env.token);

@@ -12,6 +12,7 @@
     "discord.js": "^12.2.0",
     "google-spreadsheet": "^3.0.11",
     "googleapis": "^39.2.0",
+    "node-twitch": "^0.4.1",
     "twit": "^2.2.11",
     "weather-js": "^2.0.0"
   }

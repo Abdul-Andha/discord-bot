@@ -37,6 +37,8 @@ bot.on(`ready`, () => {
 
 bot.on(`message`, (receivedMessage) => {
     const privateBotuse = bot.channels.fetch('738607225680953354');
+    console.log(privateBotuse);
+    console.log(receivedMessage.channel);
     checkStreams(privateBotuse);
     if (receivedMessage.author == bot.user)
         return;
@@ -73,7 +75,7 @@ function processCommand(receivedMessage) {
 
 async function checkStreams(channel) {
     const streams = await twitch.getStreams({ channel: "Tubbo"});
-    channel.send(streams);
+    // channel.send(streams);
 }
 
 bot.login(process.env.token);

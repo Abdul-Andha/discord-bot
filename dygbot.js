@@ -44,7 +44,7 @@ bot.on(`message`, (receivedMessage) => {
     }
 })
 
-let minutes = 0.25, the_interval = minutes * 60 * 1000;
+let minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
     bot.commands.get('twitch').execute(bot, twitch, twitchSheet);
 }, the_interval);

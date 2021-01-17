@@ -7,12 +7,12 @@ module.exports = {
 }
 
 async function checkLive(bot, twitch, sheet) {
-    const streams = await twitch.getStreams({ channel: "HBomb94"});
+    const streams = await twitch.getStreams({ channel: "DyGxFatal"});
     if (streams.data.length == 0) {
         return;
     }
 
-    targetRows = await findRow("HBomb94", sheet);
+    targetRows = await findRow("DyGxFatal", sheet);
     if (targetRows[0].ID != streams.data[0].id) {
         targetRows[0].ID = streams.data[0].id;
         await targetRows[0].save();
@@ -21,8 +21,8 @@ async function checkLive(bot, twitch, sheet) {
 }
 
 function announceLive(bot) {
-    const privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
-    privateBotuse.send("Live2");
+    const dygTV = bot.channels.cache.find(channel => channel.id === "423585197628588044");
+    dygTV.send("Fatal is live! https://www.twitch.tv/DyGxFatal \n@here");
 }
 
 async function findRow(arg, sheet) {

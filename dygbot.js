@@ -8,7 +8,6 @@ const twitch = new TwitchAPI({
 });
 const weather = require('weather-js');
 const prefix = "~";
-privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -47,7 +46,8 @@ bot.on(`message`, (receivedMessage) => {
 
 let minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
-  privateBotuse.send("1 min check");
+    privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
+    privateBotuse.send("1 min check");
   // do your stuff here
 }, the_interval);
 

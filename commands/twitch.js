@@ -14,6 +14,8 @@ async function checkLive(bot, twitch, sheet) {
 
     targetRows = await findRow("HBomb94", sheet);
     if (targetRows[0].ID != streams.data[0].id) {
+        targetRows[0].ID = streams.data[0].id;
+        await targetRow[0].save();
         announceLive(bot);
     }
 }

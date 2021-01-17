@@ -22,7 +22,7 @@ async function checkLive(bot, twitch, sheet) {
 
 function announceLive(bot) {
     const privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
-    privateBotuse.send("Live");
+    privateBotuse.send("Live2");
 }
 
 async function findRow(arg, sheet) {

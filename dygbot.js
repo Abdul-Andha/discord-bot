@@ -47,7 +47,9 @@ let minutes = 0.25, the_interval = minutes * 60 * 1000;
 setInterval(async function() {
     privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
     const streams = await twitch.getStreams({ channel: "5uppp"});
-    console.log(streams);
+    console.log(stream.type);
+    console.log(stream.started_at);
+    console.log(stream.user_id);
 }, the_interval);
 
 perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];

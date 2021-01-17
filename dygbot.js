@@ -33,10 +33,10 @@ accessSpreadsheet();
 
 bot.on(`ready`, () => {
     console.log("Connected as " + bot.user.tag);
+    const privateBotuse = receivedMessage.guild.channels.fetch(channel => channel.id === "738607225680953354");
 });
 
 bot.on(`message`, (receivedMessage) => {
-    //const privateBotuse = receivedMessage.guild.channels.fetch(channel => channel.id === "738607225680953354");
     //checkStreams(privateBotuse);
     if (receivedMessage.author == bot.user)
         return;
@@ -44,6 +44,13 @@ bot.on(`message`, (receivedMessage) => {
         processCommand(receivedMessage);
     }
 })
+
+let minutes = 1, the_interval = minutes * 60 * 1000;
+setInterval(function() {
+  privateBotuse.send("1 min check");
+  // do your stuff here
+}, the_interval);
+
 perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1);

@@ -8,7 +8,7 @@ const twitch = new TwitchAPI({
 });
 const weather = require('weather-js');
 const prefix = "~";
-const privateBotuse;
+privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -34,7 +34,6 @@ accessSpreadsheet();
 
 bot.on(`ready`, () => {
     console.log("Connected as " + bot.user.tag);
-    privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
 });
 
 bot.on(`message`, (receivedMessage) => {

@@ -46,7 +46,7 @@ bot.on(`message`, (receivedMessage) => {
 
 let minutes = 0.25, the_interval = minutes * 60 * 1000;
 setInterval(function() {
-    bot.commands.get('twitch').execute(twitchSheet);
+    bot.commands.get('twitch').execute(twitch, twitchSheet);
 }, the_interval);
 
 perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];

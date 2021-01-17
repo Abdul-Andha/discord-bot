@@ -1,12 +1,12 @@
 module.exports = {
     name: 'twitch',
     description: 'Checks every minute if people on a list are live. Announces if they are.',
-    execute(sheet) {
-        checkLive(sheet);
+    execute(twitch, sheet) {
+        checkLive(twitch, sheet);
     }
 }
 
-async function checkLive(sheet) {
+async function checkLive(twitch, sheet) {
     const streams = await twitch.getStreams({ channel: "HBomb94"});
     if (streams.data.length == 0) {
         return;

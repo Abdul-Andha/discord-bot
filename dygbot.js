@@ -79,7 +79,7 @@ function processCommand(receivedMessage) {
 
 async function checkStreams(channel) {
     
-    // channel.send(streams);
+    // h channel.send(streams);
 }
 
 bot.login(process.env.token);

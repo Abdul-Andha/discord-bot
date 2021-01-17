@@ -36,7 +36,6 @@ bot.on(`ready`, () => {
 });
 
 bot.on(`message`, (receivedMessage) => {
-    //checkStreams(privateBotuse);
     if (receivedMessage.author == bot.user)
         return;
     if (receivedMessage.content.startsWith(prefix)) {
@@ -47,8 +46,8 @@ bot.on(`message`, (receivedMessage) => {
 let minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
     privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
-    privateBotuse.send("1 min check");
-  // do your stuff here
+    const streams = await twitch.getStreams({ channel: "Tubbo"});
+    console.log(streams);
 }, the_interval);
 
 perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];
@@ -79,7 +78,7 @@ function processCommand(receivedMessage) {
 }
 
 async function checkStreams(channel) {
-    const streams = await twitch.getStreams({ channel: "Tubbo"});
+    
     // channel.send(streams);
 }
 

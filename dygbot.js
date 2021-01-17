@@ -46,7 +46,7 @@ bot.on(`message`, (receivedMessage) => {
 let minutes = 0.25, the_interval = minutes * 60 * 1000;
 setInterval(async function() {
     privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
-    const streams = await twitch.getStreams({ channel: "5uppp"});
+    const streams = await twitch.getStreams({ channel: "xChocoBars"});
     console.log(streams.data[0].type);
     console.log(streams.data[0].started_at);
     console.log(streams.data[0].user_id);

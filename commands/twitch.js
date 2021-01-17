@@ -1,12 +1,12 @@
 module.exports = {
     name: 'twitch',
     description: 'Checks every minute if people on a list are live. Announces if they are.',
-    execute(twitch, sheet) {
-        checkLive(twitch, sheet);
+    execute(bot, twitch, sheet) {
+        checkLive(bot, twitch, sheet);
     }
 }
 
-async function checkLive(twitch, sheet) {
+async function checkLive(bot, twitch, sheet) {
     const streams = await twitch.getStreams({ channel: "HBomb94"});
     if (streams.data.length == 0) {
         return;
@@ -14,11 +14,11 @@ async function checkLive(twitch, sheet) {
 
     targetRows = await findRow("HBomb94", sheet);
     if (targetRows[0].ID != streams.data[0].id) {
-        announceLive();
+        announceLive(bot);
     }
 }
 
-function announceLive() {
+function announceLive(bot) {
     const privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
     privateBotuse.send("Live");
 }

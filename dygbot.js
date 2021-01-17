@@ -19,7 +19,7 @@ const {GoogleSpreadsheet} = require('google-spreadsheet');
 const {promisify} = require('util');
 const creds = require('./creds.json');
 
-let tagSheet, cookieSheet;
+let tagSheet, cookieSheet, twitchSheet;
 
 async function accessSpreadsheet() {
     const doc = new GoogleSpreadsheet('1cRFU5w8xfBeVtm4GiZwWVO8b8HOKZW0wU-QGk9ugwGA');
@@ -27,6 +27,7 @@ async function accessSpreadsheet() {
     const info = await doc.loadInfo();
     tagSheet = doc.sheetsByIndex[0];
     cookieSheet = doc.sheetsByIndex[1];
+    twitchSheet = doc.sheetsByIndex[2];
 }
 
 accessSpreadsheet();
@@ -44,16 +45,8 @@ bot.on(`message`, (receivedMessage) => {
 })
 
 let minutes = 0.25, the_interval = minutes * 60 * 1000;
-setInterval(async function() {
-    privateBotuse = bot.channels.cache.find(channel => channel.id === "738607225680953354");
-    const streams = await twitch.getStreams({ channel: "xChocoBars"});
-    if (streams.data.length == 0) {
-        return;
-    }
-    if (streams.data[0].started_at - )
-    console.log(streams.data[0].type);
-    console.log(streams.data[0].started_at);
-    console.log(streams.data[0].id);
+setInterval(function() {
+    bot.commands.get('twitch').execute(twitchSheet);
 }, the_interval);
 
 perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];

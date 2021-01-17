@@ -33,7 +33,7 @@ accessSpreadsheet();
 
 bot.on(`ready`, () => {
     console.log("Connected as " + bot.user.tag);
-    const privateBotuse = bot.guild.channels.fetch(channel => channel.id === "738607225680953354");
+    const privateBotuse = bot.channels.fetch(channel => channel.id === "738607225680953354");
 });
 
 bot.on(`message`, (receivedMessage) => {

@@ -57,7 +57,7 @@ function processCommand(receivedMessage) {
     let args = splitCommand.slice(1);
     if (mainCommand === "DyG" || mainCommand === "dyg" || mainCommand === "Dyg")
         bot.commands.get('dyg').execute(receivedMessage);
-    else if (mainCommand === "aster" || mainCommand === "astr" || mainCommand === "Astr" || mainCommand === "Aste" || mainCommand === "Aster")
+    else if ((mainCommand === "aster" || mainCommand === "astr" || mainCommand === "Astr" || mainCommand === "Aste" || mainCommand === "Aster") && perms.includes(receivedMessage.author.id))
         bot.commands.get('asterSite').execute(receivedMessage);
     else if (mainCommand === "choose")
         bot.commands.get('choose').execute(receivedMessage, args);

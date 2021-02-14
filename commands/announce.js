@@ -8,7 +8,7 @@ module.exports = {
         if (args.length < 3)
             return receivedMessage.channel.send("Error: Not enough arguments. Try ~announce **[Channel]** **'[Title]'** **[Message]**");
 
-        if (args[1].indexOf("'") != -1) {
+        if (args[1].indexOf("(") != -1) {
             title = args[1].substr(1);
             let end = false;
             let count = 2;
@@ -16,7 +16,7 @@ module.exports = {
                 if (count > args.length - 1) {
                     return receivedMessage.channel.send("Error: No closing quote found. Only use quotes for multiple word titles.");
                 }
-                if (args[count].indexOf("'") != -1) {
+                if (args[count].indexOf(")") != -1) {
                     title += " " + args[count].substr(0, args[count].length - 1);
                     end = true;
                 } else {

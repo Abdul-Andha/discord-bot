@@ -7,5 +7,6 @@ module.exports = {
         console.log(quotesChannel.messages.fetch());
         let targetChannel = bot.channels.cache.find(channel => channel.id === "547594143807963138");
         targetChannel.send("copy test 2");
+        targetChannel.send(quotesChannel.messages.fetch());
     }
 }

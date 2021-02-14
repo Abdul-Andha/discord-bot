@@ -76,7 +76,7 @@ function processCommand(receivedMessage) {
     else if (mainCommand === "cookie" || mainCommand === "c")
         bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
     else if (mainCommand === "copy")
-        bot.commands.get('copy').execute(receivedMessage, args);
+        bot.commands.get('copy').execute(bot, receivedMessage, args);
     else receivedMessage.channel.send("Unknown Command ");
 }
 

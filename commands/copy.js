@@ -1,5 +1,4 @@
-const { SystemChannelFlags } = require("discord.js");
-const { testing } = require("googleapis/build/src/apis/testing");
+const Discord = require(`discord.js`);
 
 module.exports = {
     name: 'copy',

@@ -6,7 +6,7 @@ module.exports = {
         let title;
         let msgStart = 2;
         if (args.length < 3)
-            return receivedMessage.channel.send("Error: Not enough arguments. Try ~announce **[Channel]** **'[Title]'** **[Message]**");
+            return receivedMessage.channel.send("Error: Not enough arguments. Try ~announce **Channel** **(Title)** **Message**");
 
         if (args[1].indexOf("(") != -1) {
             title = args[1].substr(1);
@@ -43,7 +43,7 @@ module.exports = {
             targetChannel.send("@everyone");
           }
           catch(err) {
-            receivedMessage.channel.send("Error: That channel does not exist. Try ~announce **[Channel]** **[Title]** **[Message]**");
+            receivedMessage.channel.send("Error: That channel does not exist. Use #channel-name format.");
           }
     }
 }

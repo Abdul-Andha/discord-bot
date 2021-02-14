@@ -49,7 +49,7 @@ setInterval(function() {
     bot.commands.get('twitch').execute(bot, twitch, twitchSheet);
 }, the_interval);
 
-perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289"];
+perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929"];
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1);
     let splitCommand = fullCommand.split(" ");
@@ -75,6 +75,8 @@ function processCommand(receivedMessage) {
         bot.commands.get('rps').execute(receivedMessage, args);
     else if (mainCommand === "cookie" || mainCommand === "c")
         bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
+    else if (mainCommand === "copy")
+        bot.commands.get('copy').execute(receivedMessage, args);
     else receivedMessage.channel.send("Unknown Command ");
 }
 

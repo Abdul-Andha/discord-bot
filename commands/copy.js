@@ -1,8 +1,10 @@
+const { SystemChannelFlags } = require("discord.js");
+
 module.exports = {
     name: 'copy',
     description: 'Copies a channel to another channel in another server.',
     execute(bot, receivedMessage, args) {
-        
+        console.log("test1");
         let quotesChannel = bot.channels.cache.find(channel => channel.id === "531298362545274930");
         console.log(quotesChannel.messages.fetch());
         let targetChannel = bot.channels.cache.find(channel => channel.id === "547594143807963138");

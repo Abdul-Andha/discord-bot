@@ -17,9 +17,11 @@ module.exports = {
                     return receivedMessage.channel.send("Error: No closing quote found. Only use quotes for multiple word titles.");
                 }
                 if (args[count].indexOf("'") != -1) {
+                    title += args[count].substr(0, args[count].length - 1);
                     end = true;
+                } else {
+                    title += args[count];
                 }
-                title += args[count];
                 count++;
                 msgStart = count;
             } 

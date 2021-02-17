@@ -4,17 +4,17 @@ module.exports = {
     name: 'copy',
     description: 'Copies a channel to another channel in another server.',
     execute(bot, receivedMessage, args) {
-        testing(bot);
-        
+        getMessageCollection(bot, "531298362545274930");
+        // sendMessages();
     }
 }
 
-async function testing(bot) {
-    console.log("test1");
-    let quotesChannel = bot.channels.cache.find(channel => channel.id === "531298362545274930");
-    let test = await quotesChannel.messages.fetch({ limit: 10 });
-    console.log(test);
-    let targetChannel = bot.channels.cache.find(channel => channel.id === "547594143807963138");
-    targetChannel.send("copy test 2");
-    console.log("test");
+async function getMessageCollection(bot, channelID) {
+    let quotesChannel = bot.channels.cache.find(channel => channel.id === channelID);
+    let msgCollection = await quotesChannel.messages.fetch({ limit: 10 });
+    console.log(msgCollection);
+}
+
+function sendMessages(collection, channelID) {
+    
 }

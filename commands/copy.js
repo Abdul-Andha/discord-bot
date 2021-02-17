@@ -17,8 +17,6 @@ async function getMessageCollection(bot, channelID) {
 
 function sendMessages(bot, collection, channelID) {
     let targetChannel = bot.channels.cache.find(channel => channel.id === channelID);
-    collection.forEach(msg => {
-        console.log(msg.content);
-        targetChannel.send(msg.content);
-    });
+    console.log(collection[1].content);
+    targetChannel.send(collection[1].content);
 }

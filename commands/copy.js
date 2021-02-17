@@ -5,7 +5,7 @@ module.exports = {
     description: 'Copies a channel to another channel in another server.',
     execute(bot, receivedMessage, args) {
         msgCollection = getMessageCollection(bot, "531298362545274930");
-        sendMessages(msgCollection, "811716564147109935");
+        sendMessages(bot, msgCollection, "811716564147109935");
     }
 }
 
@@ -15,7 +15,7 @@ async function getMessageCollection(bot, channelID) {
     return msgCollection;
 }
 
-function sendMessages(collection, channelID) {
+function sendMessages(bot, collection, channelID) {
     let targetChannel = bot.channels.cache.find(channel => channel.id === channelID);
     collection.forEach(msg => {
         console.log(msg.content);

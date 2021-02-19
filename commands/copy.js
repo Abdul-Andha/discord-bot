@@ -14,8 +14,7 @@ async function getMessageCollection(bot, channelID) {
     let targetChannel = bot.channels.cache.find(channel => channel.id === "811716564147109935");
     
     collection = await quotesChannel.messages.fetch({ limit: 10 });
-    collection.each(messages => console.log(messages.content))
-    .catch(console.error);
+    collection.each(messages => console.log(messages.content));
 }
 
 // function sendMessages(bot, collection, channelID) {

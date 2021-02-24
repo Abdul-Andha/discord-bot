@@ -34,6 +34,7 @@ module.exports = {
         const outputMessage = new Discord.MessageEmbed();
         outputMessage.setColor("#3381ff");
         outputMessage.setTitle(title);
+        outputMessage.setImage(receivedMessage.attachments.first().attachment);
         outputMessage.setDescription(args[msgStart]);
         args[0] = args[0].substr(2);
         args[0] = args[0].substr(0, args[0].length - 1);

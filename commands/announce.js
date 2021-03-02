@@ -28,6 +28,8 @@ module.exports = {
 		} else {
 			title = args[1];
 		}
+		if (title == "")
+			return receivedMessage.channel.send("No title detected. Please check the format.");
 
 		for (let i = msgStart + 1; i < args.length; i++)
 			args[msgStart] += " " + args[i];

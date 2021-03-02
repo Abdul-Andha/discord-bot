@@ -36,7 +36,7 @@ function sendAnnounceHelp(receivedMessage) {
 	body += "\nOnly works with one image. Support for multiple images may be added in the future.";
 	body += "\n";
 	body += "\n__Test before send__";
-	body += "\nTest your announcement before sending it. To test it, put a 't' before the command.";
+	body += "\n**The test will not @everyone.** Test your announcement before sending it. To test it, put a 't' before the command.";
 	body += "\nYou can use the test feature of the command in **any non public channel.**";
 	body += "\nEx: ~tannounce #channel-name (test announcement) Hello World!";
 	body += "\n";

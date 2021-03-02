@@ -20,6 +20,7 @@ function sendAnnounceHelp(receivedMessage) {
 
 	let body = "The following is a guide on the ~announce command. You can also do ~a or ~Announce for this command.";
 	body += "\n You must use the following notation: **~announce #channel-name (Title) Message**";
+	body += "\n Make the announcement look good using emojis, text decoration, etc.";
 	body += "\n";
 	body += "\n__Channel__";
 	body += "\nYou must use #channel-name format. **This command is only to be used for announcement and news channels.**";

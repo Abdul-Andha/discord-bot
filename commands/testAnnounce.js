@@ -1,7 +1,7 @@
 const Discord = require(`discord.js`);
 module.exports = {
-	name: 'announce',
-	description: 'Requires three arguments. The first argument must be a channel. The second argument must be the title. The third argument must be the message. The bot will announce the specified message to the specified channel.',
+	name: 'tannounce',
+	description: 'Requires three arguments. The first argument must be a channel. The second argument must be the title. The third argument must be the message. The bot will announce the specified message to the specified channel. Will not @everyone',
 	execute(bot, receivedMessage, args) {
 		let title;
 		let msgStart = 2;
@@ -43,7 +43,6 @@ module.exports = {
 		targetChannel = bot.channels.cache.get(args[0]);
 		try {
 			targetChannel.send(outputMessage);
-			targetChannel.send("@everyone");
 		} catch (err) {
 			receivedMessage.channel.send("Error: That channel does not exist. Use #channel-name format.");
 		}

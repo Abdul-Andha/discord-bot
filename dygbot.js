@@ -28,6 +28,7 @@ async function accessSpreadsheet() {
     tagSheet = doc.sheetsByIndex[0];
     cookieSheet = doc.sheetsByIndex[1];
     twitchSheet = doc.sheetsByIndex[2];
+    scoreSheet = doc.sheetsByIndex[3];
 }
 
 accessSpreadsheet();
@@ -49,15 +50,17 @@ setInterval(function() {
     bot.commands.get('twitch').execute(bot, twitch, twitchSheet);
 }, the_interval);
 
-perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929"];
+perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929", "425816118809198593", "352557706097197057"];
+//        thunder              smiley                 juice                 fire                  fatal                 vortex                auroraa
+
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1);
     let splitCommand = fullCommand.split(" ");
-    let mainCommand = splitCommand[0];
+    let mainCommand = splitCommand[0].toLowerCase();
     let args = splitCommand.slice(1);
-    if (mainCommand === "DyG" || mainCommand === "dyg" || mainCommand === "Dyg")
+    if (mainCommand === "dyg")
         bot.commands.get('dyg').execute(receivedMessage);
-    else if ((mainCommand === "aster" || mainCommand === "astr" || mainCommand === "Astr" || mainCommand === "Aste" || mainCommand === "Aster") && perms.includes(receivedMessage.author.id))
+    else if ((mainCommand === "aster" || mainCommand === "astr" || mainCommand === "aste"))
         bot.commands.get('asterSite').execute(receivedMessage);
     else if (mainCommand === "choose")
         bot.commands.get('choose').execute(receivedMessage, args);
@@ -65,19 +68,23 @@ function processCommand(receivedMessage) {
         bot.commands.get('excuse').execute(receivedMessage, args);
     else if (mainCommand === "tag" && receivedMessage.author.id == "152207704545296384")
         bot.commands.get('tag').execute(receivedMessage, args, tagSheet);
-    else if (mainCommand === "help")
+    else if (mainCommand === "help" && perms.includes(receivedMessage.author.id))
         bot.commands.get('help').execute(receivedMessage, args);
-    else if (mainCommand === "message" && perms.includes(receivedMessage.author.id))
+    else if (mainCommand === "message" && receivedMessage.author.id == "152207704545296384")
         bot.commands.get('message').execute(bot, receivedMessage, args);
-    else if (mainCommand === 'announce' && perms.includes(receivedMessage.author.id))
+    else if ((mainCommand === 'announce' || mainCommand === "a") && perms.includes(receivedMessage.author.id))
         bot.commands.get('announce').execute(bot, receivedMessage, args);
+    else if ((mainCommand === 'tannounce' || mainCommand === 'ta') && perms.includes(receivedMessage.author.id))
+        bot.commands.get('tannounce').execute(bot, receivedMessage, args);
     else if (mainCommand === "rps")
         bot.commands.get('rps').execute(receivedMessage, args);
     else if (mainCommand === "cookie" || mainCommand === "c")
         bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
     else if (mainCommand === "copy")
         bot.commands.get('copy').execute(bot, receivedMessage, args);
-    else receivedMessage.channel.send("Unknown Command ");
+    else if (mainCommand === "score" || mainCommand === "sb")
+        bot.commands.get('eventScoreBoard').execute(receivedMessage, args, scoreSheet);
+    else receivedMessage.channel.send("Unknown Command");
 }
 
 async function checkStreams(channel) {
@@ -85,4 +92,5 @@ async function checkStreams(channel) {
     // h channel.send(streams);
 }
 
-bot.login(process.env.token);
+bot.login("NjQwNjk1OTUyMzQ0MzUwNzUx.Xb9kmg.Ax-22SEoVOdRgGa0MovyZZfL2nI");
+

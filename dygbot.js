@@ -92,5 +92,5 @@ async function checkStreams(channel) {
     // h channel.send(streams);
 }
 
-bot.login("NjQwNjk1OTUyMzQ0MzUwNzUx.Xb9kmg.Ax-22SEoVOdRgGa0MovyZZfL2nI");
+bot.login(process.env.token);
 

@@ -28,7 +28,8 @@ async function accessSpreadsheet() {
     tagSheet = doc.sheetsByIndex[0];
     cookieSheet = doc.sheetsByIndex[1];
     twitchSheet = doc.sheetsByIndex[2];
-    scoreSheet = doc.sheetsByIndex[3];
+    weeklyScoreSheet = doc.sheetsByIndex[3];
+    monthlyScoreSheet = doc.sheetsByIndex[4];
 }
 
 accessSpreadsheet();
@@ -50,8 +51,10 @@ setInterval(function() {
     bot.commands.get('twitch').execute(bot, twitch, twitchSheet);
 }, the_interval);
 
-perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929", "425816118809198593", "352557706097197057"];
-//        thunder              smiley                 juice                 fire                  fatal                 vortex                auroraa
+const perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929", "425816118809198593", "352557706097197057"];
+//                thunder              smiley                 juice                 fire                  fatal                 vortex                auroraa
+const scorePerms = ["152207704545296384", "179039130762608641", ""];
+//                      thunder                 flame           
 
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1);
@@ -82,8 +85,8 @@ function processCommand(receivedMessage) {
         bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
     else if (mainCommand === "copy")
         bot.commands.get('copy').execute(bot, receivedMessage, args);
-    else if (mainCommand === "score" || mainCommand === "sb")
-        bot.commands.get('eventScoreBoard').execute(receivedMessage, args, scoreSheet);
+    else if ((mainCommand === "score" || mainCommand === "sb" || mainCommand === "s") && scorePerms.includes(receivedMessage.author.id))
+        bot.commands.get('eventScoreBoard').execute(receivedMessage, args, weeklyScoreSheet, monthlyScoreSheet);
     else receivedMessage.channel.send("Unknown Command");
 }
 

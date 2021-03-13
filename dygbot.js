@@ -29,7 +29,7 @@ async function accessSpreadsheet() {
     cookieSheet = doc.sheetsByIndex[1];
     twitchSheet = doc.sheetsByIndex[2];
     weeklyScoreSheet = doc.sheetsByIndex[3];
-    monthlyScoreSheet = doc.sheetsByIndex[4];
+    eventScoreSheet = doc.sheetsByIndex[4];
 }
 
 accessSpreadsheet();
@@ -71,7 +71,7 @@ function processCommand(receivedMessage) {
         bot.commands.get('excuse').execute(receivedMessage, args);
     else if (mainCommand === "tag" && receivedMessage.author.id == "152207704545296384")
         bot.commands.get('tag').execute(receivedMessage, args, tagSheet);
-    else if (mainCommand === "help" && perms.includes(receivedMessage.author.id))
+    else if (mainCommand === "help" && (perms.includes(receivedMessage.author.id) || scorePerms.includes(receivedMessage.author.id)))
         bot.commands.get('help').execute(receivedMessage, args);
     else if (mainCommand === "message" && receivedMessage.author.id == "152207704545296384")
         bot.commands.get('message').execute(bot, receivedMessage, args);
@@ -86,12 +86,11 @@ function processCommand(receivedMessage) {
     else if (mainCommand === "copy")
         bot.commands.get('copy').execute(bot, receivedMessage, args);
     else if ((mainCommand === "score" || mainCommand === "sb" || mainCommand === "s") && scorePerms.includes(receivedMessage.author.id))
-        bot.commands.get('eventScoreBoard').execute(receivedMessage, args, weeklyScoreSheet, monthlyScoreSheet);
+        bot.commands.get('eventScoreBoard').execute(bot, receivedMessage, args, weeklyScoreSheet, eventScoreSheet);
     else receivedMessage.channel.send("Unknown Command");
 }
 
 async function checkStreams(channel) {
-    
     // h channel.send(streams);
 }
 

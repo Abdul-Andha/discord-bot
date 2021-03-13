@@ -10,12 +10,16 @@ module.exports = {
 			sendAnnounceHelp(receivedMessage);
 		else if (args[0].toLowerCase() == "message")
 			receivedMessage.channel.send("Message help is on the way!");
+		else if (args[0].toLowerCase() == "scoreboard" || args[0].toLowerCase() == "score" || args[0].toLowerCase() == "s" || args[0].toLowerCase() == "sb")
+			sendScoreboardHelp(receivedMessage);
+		else
+		receivedMessage.channel.send("__What command do you need help with?__ \n > Announce \n > Message \n > Scoreboard \n \n *Do ~help command*");
 	}
 }
 
 function sendAnnounceHelp(receivedMessage) {
 	const outputMessage = new Discord.MessageEmbed();
-	outputMessage.setColor("#3381ff");
+	outputMessage.setColor("#A207FA");
 	outputMessage.setTitle("**__Announce Command Guide__**");
 
 	let body = "The following is a guide on the ~announce command. You can also do ~a or ~Announce for this command.";
@@ -44,6 +48,44 @@ function sendAnnounceHelp(receivedMessage) {
 	body += "\nDM Thunder#6228 if you have any questions.";
 	outputMessage.setDescription(body);
 	outputMessage.setImage("https://media.discordapp.net/attachments/737378578370527273/816128022855548958/announcetest.png?width=1005&height=676");
+
+	receivedMessage.channel.send(outputMessage);
+}
+
+function sendScoreboardHelp(receivedMessage) {
+	const outputMessage = new Discord.MessageEmbed();
+	outputMessage.setColor("#A207FA");
+	outputMessage.setTitle("**__Scoreboard Commands Guide__**");
+
+	let body = "The following is a guide on the ~score command. You can also do ~sb or ~s for this command.";
+	body += "\nYou will add or subtract points first. When you are done or need to see the board, use update.";
+	body += "\n You must use the following notation: **~score (w/e) (a/s/u) (@Target) Points**";
+	body += "\n";
+	body += "\n__w/e__";
+	body += "\nThe w stands for **weekly**. The e stands for **event**. You have to use the right one for the scoreboard you are working with.";
+	body += "\n";
+	body += "\n__a/s/u__";
+	body += "\nThe a stands for **add**.";
+	body += "\nThe s stands for **subtract**.";
+	body += "\nThe u stands for **update**.";
+	body += "\n";
+	body += "\n__@Target__";
+	body += "\nYou must @ the target. Do not forget to @ them.";
+	body += "\n**Do not @target for update.** For update, put nothing for @Target.";
+	body += "\n";
+	body += "\n__Points__";
+	body += "\nRepresents how many points you are adding or subtracting."; 
+	body += "\nMust be an integer."; 
+	body += "\n**Do not put Points for update.**";
+	body += "\n";
+	body += "\n__Update Command__";
+	body += "\nUpdate is a little different from the other two.";
+	body += "\nFor update, put no @Target or Points.";
+	body += "\nEx: ~s e u";
+	body += "\n*This will update the event scoreboard.*";
+	body += "\n";
+	body += "\nDM Thunder#6228 if you have any questions.";
+	outputMessage.setDescription(body);
 
 	receivedMessage.channel.send(outputMessage);
 }

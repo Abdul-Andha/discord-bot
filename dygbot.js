@@ -53,7 +53,7 @@ setInterval(function() {
 
 const perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929", "425816118809198593", "352557706097197057"];
 //                thunder              smiley                 juice                 fire                  fatal                 vortex                auroraa
-const scorePerms = ["152207704545296384", "179039130762608641", "761848395375181825"];
+const scorePerms = ["152207704545296384", "179039130762608641", "761848395375181825", "177542487278092289"];
 //                      thunder                 flame                 fresh
 
 function processCommand(receivedMessage) {

@@ -34,7 +34,7 @@ module.exports = {
 		for (let i = msgStart + 1; i < args.length; i++)
 			args[msgStart] += " " + args[i];
 		const outputMessage = new Discord.MessageEmbed();
-		outputMessage.setColor("#3381ff");
+		outputMessage.setColor("#A207FA");
 		outputMessage.setTitle(title);
 		if (receivedMessage.attachments.size > 0) {
 			outputMessage.setImage(receivedMessage.attachments.first().attachment);

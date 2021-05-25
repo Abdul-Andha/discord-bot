@@ -30,6 +30,7 @@ async function accessSpreadsheet() {
     twitchSheet = doc.sheetsByIndex[2];
     weeklyScoreSheet = doc.sheetsByIndex[3];
     eventScoreSheet = doc.sheetsByIndex[4];
+    rolePermSheet = doc.sheetsByIndex[5];
 }
 
 accessSpreadsheet();
@@ -54,7 +55,7 @@ setInterval(function() {
 const perms = ["152207704545296384", "332660732539961368", "322776121089196033", "177542487278092289", "288875657641852929", "425816118809198593", "352557706097197057"];
 //                thunder              smiley                 juice                 fire                  fatal                 vortex                auroraa
 const scorePerms = ["152207704545296384", "179039130762608641", "761848395375181825", "177542487278092289"];
-//                      thunder                 flame                 fresh
+//                      thunder                 flame                 fresh                fire
 
 function processCommand(receivedMessage) {
     let fullCommand = receivedMessage.content.substr(1);
@@ -63,30 +64,49 @@ function processCommand(receivedMessage) {
     let args = splitCommand.slice(1);
     if (mainCommand === "dyg")
         bot.commands.get('dyg').execute(receivedMessage);
+
     else if ((mainCommand === "aster" || mainCommand === "astr" || mainCommand === "aste"))
         bot.commands.get('asterSite').execute(receivedMessage);
+
     else if (mainCommand === "choose")
         bot.commands.get('choose').execute(receivedMessage, args);
+
     else if (mainCommand === "excuse")
         bot.commands.get('excuse').execute(receivedMessage, args);
+
     else if (mainCommand === "tag" && receivedMessage.author.id == "152207704545296384")
         bot.commands.get('tag').execute(receivedMessage, args, tagSheet);
+
     else if (mainCommand === "help" && (perms.includes(receivedMessage.author.id) || scorePerms.includes(receivedMessage.author.id)))
         bot.commands.get('help').execute(receivedMessage, args);
+
     else if (mainCommand === "message" && receivedMessage.author.id == "152207704545296384")
         bot.commands.get('message').execute(bot, receivedMessage, args);
+
     else if ((mainCommand === 'announce' || mainCommand === "a") && perms.includes(receivedMessage.author.id))
         bot.commands.get('announce').execute(bot, receivedMessage, args);
+
     else if ((mainCommand === 'tannounce' || mainCommand === 'ta') && perms.includes(receivedMessage.author.id))
         bot.commands.get('tannounce').execute(bot, receivedMessage, args);
+
     else if (mainCommand === "rps")
         bot.commands.get('rps').execute(receivedMessage, args);
+
     else if (mainCommand === "cookie" || mainCommand === "c")
         bot.commands.get('cookie clicker').execute(receivedMessage, args, cookieSheet);
+
     else if (mainCommand === "copy")
         bot.commands.get('copy').execute(bot, receivedMessage, args);
+
+    else if ((mainCommand === "arp" || mainCommand === "rrp") && perms.includes(receivedMessage.author.id))
+        bot.commands.get('rolePermsManager').execute(receivedMessage, mainCommand, args, rolePermSheet);
+
+    else if (mainCommand === "ar" || mainCommand === "rr")
+        bot.commands.get('roleManager').execute(receivedMessage, mainCommand, args);
+
     else if ((mainCommand === "score" || mainCommand === "sb" || mainCommand === "s") && scorePerms.includes(receivedMessage.author.id))
         bot.commands.get('eventScoreBoard').execute(bot, receivedMessage, args, weeklyScoreSheet, eventScoreSheet);
+
     else receivedMessage.channel.send("Unknown Command");
 }
 

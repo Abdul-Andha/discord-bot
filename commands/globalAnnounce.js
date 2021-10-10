@@ -4,7 +4,7 @@ module.exports = {
   description: 'Works like announce but does it in announcement channels across multiple servers. Format: ~ga (Title) Message',
   execute(bot, receivedMessage, args) {
     if (args.length < 2)
-      return receivedMessage.channel.send("Error: Not enough arguments. Try ~announce **(Title)** **Message**");
+      return receivedMessage.channel.send("Error: Not enough arguments. Try ~gannounce **(Title)** **Message**");
     
     let channelIds = ["451749053911269378", "885389694551085116", "883652496076206110"];
     let tempArgs = [];

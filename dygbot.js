@@ -88,6 +88,9 @@ function processCommand(receivedMessage) {
 
     else if ((mainCommand === 'tannounce' || mainCommand === 'ta') && perms.includes(receivedMessage.author.id))
         bot.commands.get('tannounce').execute(bot, receivedMessage, args);
+        
+    else if ((mainCommand === 'globalannounce' || mainCommand === "ga") && perms.includes(receivedMessage.author.id))
+        bot.commands.get('gannounce').execute(bot, receivedMessage, args);
 
     else if (mainCommand === "rps")
         bot.commands.get('rps').execute(receivedMessage, args);
@@ -115,4 +118,3 @@ async function checkStreams(channel) {
 }
 
 bot.login(process.env.token);
-

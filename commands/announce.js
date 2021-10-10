@@ -3,7 +3,7 @@ module.exports = {
 	name: 'announce',
 	description: 'Requires three arguments. The first argument must be a channel. The second argument must be the title. The third argument must be the message. The bot will announce the specified message to the specified channel.',
 	execute(bot, receivedMessage, args) {
-		let title;
+	    let title;
 		let msgStart = 2;
 		if (args.length < 3)
 			return receivedMessage.channel.send("Error: Not enough arguments. Try ~announce **#channel-name** **(Title)** **Message**");
@@ -40,8 +40,11 @@ module.exports = {
 			outputMessage.setImage(receivedMessage.attachments.first().attachment);
 		}
 		outputMessage.setDescription(args[msgStart]);
-		args[0] = args[0].substr(2);
-		args[0] = args[0].substr(0, args[0].length - 1);
+		if (args[0].substr(0, 1) === "<") {
+		  args[0] = args[0].substr(2);
+		  args[0] = args[0].substr(0, args[0].length - 1);
+		}
+		
 		targetChannel = bot.channels.cache.get(args[0]);
 		try {
 			targetChannel.send(outputMessage);

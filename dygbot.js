@@ -121,5 +121,4 @@ function processCommand(receivedMessage) {
 async function checkStreams(channel) {
 	// h channel.send(streams);
 }
-
 bot.login(process.env.token);

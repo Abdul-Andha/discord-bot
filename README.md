@@ -2,7 +2,7 @@
 
 ### App Description
 
-This bot has various commands available to users which allow for announcements, messages, and database management. Users can access, sort, and update the data directly through discord.
+This bot has various commands available to users which allow for announcements, messages, and database management. Users can access, sort, and update the data directly through discord. They can also run the help command to get more information on specific features.
 
 ### App Demo
 
@@ -15,3 +15,4 @@ This bot has various commands available to users which allow for announcements, 
 - Fetch data
 - Update data
 - Sort data
+- Help command
